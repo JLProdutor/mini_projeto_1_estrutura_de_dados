@@ -39,7 +39,7 @@ A Playlist é uma lista duplamente encadeada própria.
 
 O "Cursor" é um nó da própria lista; por isso `next` e `prev` apenas deslocam a referência para o nó seguinte/anterior e têm custo O(1).
 
-A fila "Up Next" usa `collections.deque`, com `append` no final e `popleft` no início, respeitando o comportamento FIFO de uma fila.
+A fila "Up Next" usa `collections.deque`, com `append` no final e `popleft` no início, respeitando o comportamento de uma fila.
 
 O histórico usa outro `deque`, com `maxlen=20`. A inserção ocorre no final e, ao atingir a capacidade, o item mais antigo é descartado automaticamente.
 
@@ -47,7 +47,7 @@ O smart-shuffle usa efetivamente `queue.PriorityQueue`: todas as faixas da bibli
 
 ## Fórmula do "Smart Shuffle" (Embaralho Inteligente):
 
-Foi adotada a fórmula proposta no enunciado:
+Foi adotada a fórmula proposta:
 
 ```text
 chave(f) = -10 * rating(f) + penalty_rec(f)
@@ -91,12 +91,6 @@ mediap> history
 3. Águas de Março — Elis Regina [11:42:00]
 mediap> quit
 ```
-
-Os horários do histórico variam conforme o momento de execução.
-
-A ordem mostrada no exemplo segue a regra do projeto: mais recente para mais antigo.
-
-A fila "Up Next" tem precedência sobre a próxima faixa natural da playlist, mas a execução da fila não altera o cursor da playlist.
 
 ## Organização
 
