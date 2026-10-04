@@ -57,7 +57,7 @@ Para a posição `poshist(f)` no histórico, com `0` para a faixa mais recenteme
 
 ```text
 penalty_rec(f) = { 5 - poshist(f), se poshist(f) < 5
-                   0,            caso contrário >= 5
+                   0,             se poshist(f) >= 5
 ```
 
 O termo negativo do rating é necessário porque `PriorityQueue` retorna primeiro o menor valor.
